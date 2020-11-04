@@ -13,4 +13,16 @@ body {
   .width-change-button {
     width: 10em;
   }
+  .modify-padding {
+    padding-top: 10em;
+  }
+
+  .scroll-to-view {
+    opacity: 0;
+    transition: 500ms;
+  }
+
+  .is-visible {
+    opacity: 1;
+  }
 }

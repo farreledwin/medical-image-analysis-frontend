@@ -2,7 +2,7 @@ import React from "react";
 import "./header.styles.scss";
 
 const Header = () => (
-  <div className="container background-add">
+  <div className="container background-add" data-aos="fade-right"> 
     <nav className="navbar navbar-light">
       <a className="navbar-brand text-white visibility-none">
         Medical Image Analysis

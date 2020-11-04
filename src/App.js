@@ -1,12 +1,18 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import './App.css';
 import './App.scss';
-import Header from './components/header/header.component';
-import JumbotronContent from './components/jumbotron-content/jumbotron-content';
+import JumbotronContent from './components/jumbotron-content/jumbotron.component';
 import UploadPhotos from './components/upload-photos/upload-photos.component';
 import OurTeam from './components/our-team/our-team.component';
+import Header from './components/header/header.component';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+	useEffect(() => {
+		AOS.init();
+    	AOS.refresh();
+	},[])
 	return (
 		<div className="app">
 			<Header/>
