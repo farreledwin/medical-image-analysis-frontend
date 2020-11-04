@@ -7,6 +7,7 @@ import OurTeam from './components/our-team/our-team.component';
 import Header from './components/header/header.component';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Particles from 'react-particles-js';
 
 function App() {
 	useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
 	},[])
 	return (
 		<div className="app">
+			<Particles />
 			<Header/>
 			<JumbotronContent/>
 			<UploadPhotos/>
