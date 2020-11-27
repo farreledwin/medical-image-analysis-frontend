@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect,useState } from 'react';
 import './App.css';
 import './App.scss';
 import JumbotronContent from './components/jumbotron-content/jumbotron.component';
@@ -8,19 +8,33 @@ import Header from './components/header/header.component';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Particles from 'react-particles-js';
+import LoadingMask from "react-loadingmask";
+import "react-loadingmask/dist/react-loadingmask.css";
 
 function App() {
 	useEffect(() => {
 		AOS.init();
     	AOS.refresh();
 	},[])
+
+	const[isFetching,setIsFetching] = useState(false);
+
+	const handleChange = () => {
+		setIsFetching(!isFetching);
+	}
+
 	return (
 		<div className="app">
-			<Particles />
+		<LoadingMask loading={isFetching ? true: false} loadingText={"LOADING ANALYZE THE RESULTS..."}>
+        <div>
+		<Particles />
 			<Header/>
 			<JumbotronContent/>
-			<UploadPhotos/>
+			<UploadPhotos handleChange={handleChange}/>
 			<OurTeam/>
+        </div>
+      </LoadingMask>
+
 		</div>
 	);
 }
