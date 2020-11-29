@@ -7,6 +7,10 @@ body {
   background-attachment: fixed;
   height: 100%;
 
+  .rc-loading-mask {
+    position: fixed;
+  }
+
   .purple-color-change {
     background-color: #413e8b;
   }

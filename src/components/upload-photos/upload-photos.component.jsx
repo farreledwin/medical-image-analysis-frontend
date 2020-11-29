@@ -56,8 +56,32 @@ const UploadPhotos = (props) => {
       data-aos-easing="linear"
       data-aos-duration="1000"
     >
+      <h1 className="text-center text-white mb-5">IMAGE RETRIEVAL</h1>
       {resultData !== null ? (
-        <img src={"data:image/jpg;base64,"+resultData.data.image[0]} />
+        <div className="container text-center">
+          <h1 className="text-center text-white mb-5">Query Image</h1>
+          <img
+            className="mb-5"
+            style={{ width: "200px" }}
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            src={"data:image/jpg;base64," + resultData.data.query_image}
+          />
+          <h1 className="text-center text-white mb-5">Result Image</h1>
+          <div className="row justify-content-center">
+            {resultData.data.image.map((image) => (
+              <img
+                className="mr-5 mb-5"
+                style={{ width: "200px" }}
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1000"
+                src={"data:image/jpg;base64," + image}
+              />
+            ))}
+          </div>
+        </div>
       ) : (
         <div className="text-center text-white">
           <p>Upload Your Mammography Photos Here!</p>

@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import Particles from 'react-particles-js';
 import LoadingMask from "react-loadingmask";
 import "react-loadingmask/dist/react-loadingmask.css";
+import ImageRegistrationPhotos from './components/image-registration-photos/image-registration-photos-component';
 
 function App() {
 	useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
 			<Header/>
 			<JumbotronContent/>
 			<UploadPhotos handleChange={handleChange}/>
+			<ImageRegistrationPhotos handleChange={handleChange}/>
 			<OurTeam/>
         </div>
       </LoadingMask>
