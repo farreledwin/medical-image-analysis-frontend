@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./image-registration-photos.styles.scss";
 import { faUserMd, faCamera } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -59,10 +59,10 @@ const ImageRegistrationPhotos = (props) => {
   };
 
   useEffect(() => {
-    if(resultRegistrationData !== null) {
-        props.handleChange();
+    if (resultRegistrationData !== null) {
+      props.handleChange();
     }
-},[resultRegistrationData])
+  }, [resultRegistrationData]);
 
   return (
     <div
@@ -147,8 +147,19 @@ const ImageRegistrationPhotos = (props) => {
           <div className="text-center text-white mt-5">
             <p>Result Image</p>
           </div>
+          <h6 className="text-white text-center">
+            RMSE :{resultRegistrationData.data.calculate.rmse}
+          </h6>
+          <h6 className="text-white text-center">
+            TX : {resultRegistrationData.data.calculate.tx}
+          </h6>
+          <h6 className="text-white text-center">
+            TY : {resultRegistrationData.data.calculate.ty}
+          </h6>
+          <h6 className="text-white text-center">
+            Theta : {resultRegistrationData.data.calculate.theta}
+          </h6>{" "}
           <div className="icon-upload d-flex">
-            {" "}
             <img
               src={
                 "data:image/jpg;base64," +

@@ -3,6 +3,7 @@ import "./upload-photos.styles.scss";
 import UploadImageJPG from "../../assets/images/download.png";
 import { faUserMd, faCamera } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ReactHtmlParser from "react-html-parser";
 import axios from "axios";
 
 const marginAuto = {
@@ -68,23 +69,40 @@ const UploadPhotos = (props) => {
             data-aos-duration="1000"
             src={"data:image/jpg;base64," + resultData.data.query_image}
           />
+          <h1 className="text-center text-white mb-5">Pre Processing Image</h1>
+          <img
+            className="mb-5"
+            style={{ width: "200px" }}
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+            src={"data:image/jpg;base64," + resultData.data.clahe_image}
+          />
           <h1 className="text-center text-white mb-5">Result Image</h1>
           <div className="row justify-content-center">
-            {resultData.data.image.map((image) => (
-              <img
-                className="mr-5 mb-5"
-                style={{ width: "200px" }}
-                data-aos="fade-right"
-                data-aos-easing="linear"
-                data-aos-duration="1000"
-                src={"data:image/jpg;base64," + image}
-              />
+            {resultData.data.image.map((data, index) => (
+              <div>
+                <h6 className="text-center text-white mb-2 mr-5">
+                  {resultData.data.label[index]}
+                </h6>
+                <h6 className="text-center text-white mr-5">
+                  {ReactHtmlParser(resultData.data.distances_result[index])}
+                </h6>
+                <img
+                  className="mr-5 mb-5"
+                  style={{ width: "200px" }}
+                  data-aos="fade-right"
+                  data-aos-easing="linear"
+                  data-aos-duration="1000"
+                  src={"data:image/jpg;base64," + data}
+                />
+              </div>
             ))}
           </div>
         </div>
       ) : (
         <div className="text-center text-white">
-          <p>Upload Your Mammography Photos Here!</p>
+          <p>Upload Your Breast Histology Photos Here!</p>
           <div className="icon-upload d-flex">
             <FontAwesomeIcon icon={faUserMd} />
             <label

@@ -17,6 +17,13 @@ const positionName = {
   marginBottom: "0",
 };
 
+const diazName = {
+  position: "relative",
+  left: "-0.2em",
+  fontFamily: "PoppinsThin",
+  marginBottom: "0",
+};
+
 const jobPosition = {
   position: "relative",
   left: "1em",
@@ -62,7 +69,7 @@ const OurTeam = () => (
             style={{ width: "200px" }}
           />
           <hr style={HrStyling}></hr>
-          <p style={positionName}>Diaz D. Santika</p>
+          <p style={diazName}>Dr. Ir. Diaz D. Santika, M.Sc.</p>
           <p style={jobPosition}>Senior Lecture In Binus University</p>
         </div>
         <div className="row">
