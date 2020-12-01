@@ -89,11 +89,18 @@ const StainContent = (props) => {
         </div>
       ) : null}
       {props.resultData !== null ? (
-        <div className="icon-upload d-flex">
-          <img
-            src={"data:image/jpg;base64," + props.resultData.data.result_image}
-          />{" "}
-        </div>
+        <>
+          <h1 className="text-center text-white mb-5 mt-5">
+            Result Pre Processing Image
+          </h1>
+          <div className="icon-upload d-flex mb-5">
+            <img
+              src={
+                "data:image/jpg;base64," + props.resultData.data.result_image
+              }
+            />{" "}
+          </div>
+        </>
       ) : null}
     </div>
   );

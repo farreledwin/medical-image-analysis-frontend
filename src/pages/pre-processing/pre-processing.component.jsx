@@ -55,6 +55,8 @@ const PreProcessingPage = () => {
       });
   };
 
+  console.log(imageData);
+
   const [show, setShow] = useState(true);
 
   const config = {
