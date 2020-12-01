@@ -1,14 +1,20 @@
 import React from "react";
 import "./header.styles.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => (
-  <div className="container background-add" data-aos="fade-right"> 
+  <div className="container background-add" data-aos="fade-right">
     <nav className="navbar navbar-light">
       <a className="navbar-brand text-white visibility-none">
         Medical Image Analysis
       </a>
       <form className="form-inline">
-        <a className="navbar-brand text-white">Home</a>
+        <Link to="/" className="navbar-brand text-white">
+          Home
+        </Link>
+        <Link to="/pre-processing" className="navbar-brand text-white">
+          Pre Processing
+        </Link>
       </form>
     </nav>
   </div>
