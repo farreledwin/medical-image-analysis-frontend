@@ -15,6 +15,9 @@ const Header = () => (
         <Link to="/pre-processing" className="navbar-brand text-white">
           Pre Processing
         </Link>
+        <Link to="/image-segmentation" className="navbar-brand text-white">
+          Image Segmentation
+        </Link>
       </form>
     </nav>
   </div>

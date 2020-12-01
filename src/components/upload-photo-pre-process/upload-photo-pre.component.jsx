@@ -11,12 +11,12 @@ const positionCamera = {
   left: "-0.4em",
 };
 
-const ClaheContent = (props) => {
+const UploadPhotoSection = (props) => {
   return (
     <>
       {" "}
       <p>Upload Your Photos Here!</p>
-      <div className="icon-upload d-flex">
+      <div className="icon-upload d-flex text-white">
         <FontAwesomeIcon icon={faUserMd} />
         <label
           className="btn btn-link purple-color-change text-white width-change-button"
@@ -36,4 +36,4 @@ const ClaheContent = (props) => {
   );
 };
 
-export default ClaheContent;
+export default UploadPhotoSection;

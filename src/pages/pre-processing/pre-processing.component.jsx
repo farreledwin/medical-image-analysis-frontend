@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal, Button } from "react-bootstrap";
 import "./pre-processing.styles.scss";
 import axios from "axios";
-import ClaheContent from "../../components/clahe-content/clahe-component";
+import UploadPhotoSection from "../../components/upload-photo-pre-process/upload-photo-pre.component";
 import StainContent from "../../components/stain-content/stain-content.component";
 const marginAuto = {
   margin: "auto",
@@ -168,7 +168,7 @@ const PreProcessingPage = () => {
             ) : null}
 
             {valueBtn === "CLAHE" ? (
-              <ClaheContent handleInputChange={handleInputChange} />
+              <UploadPhotoSection handleInputChange={handleInputChange} />
             ) : (
               <StainContent
                 previewImage={previewImage}
