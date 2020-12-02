@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./image-segmentation-page.styles.scss";
 import ImageSegmentationContent from "../../components/image-segmentation/image-segmentation.component";
 import axios from "axios";
@@ -11,6 +11,7 @@ const ImageSegmentationPage = () => {
   const [imageData, setImageData] = useState(null);
   const [resultData, setResultData] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
+  const [clusterAmount, setclusterAmount] = useState(2);
 
   const handleClose = () => {
     setShow(false);
@@ -18,6 +19,9 @@ const ImageSegmentationPage = () => {
   const handleChoiceChange = (event) => {
     setValueBtn(event.target.value);
   };
+  const handleClusterAmount = (event) => {
+    setclusterAmount(event.target.value);
+  }
 
   const handleImage = (event) => {
     setImageData(event.target.files[0]);
@@ -41,6 +45,7 @@ const ImageSegmentationPage = () => {
             console.log(error);
           });
       } else {
+        data.append("clusters_count", clusterAmount);
         axios
           .post("http://127.0.0.1:5000/segmentation/kmeans", data, config)
           .then((res) => {
@@ -70,7 +75,19 @@ const ImageSegmentationPage = () => {
           </div>
         </>
       ) : (
-        <ImageSegmentationContent handleImage={handleImage} />
+        <Fragment>
+          <ImageSegmentationContent handleImage={handleImage} />
+          {valueBtn === "K-Means"? 
+            <div className="icon-upload d-flex text-white text-center h-auto">
+              <h5>K-Means Clusters</h5>
+              <h1>{clusterAmount}</h1>
+              <input type="range" class="custom-range" min="1" max="5" step="1" value={clusterAmount} onChange={handleClusterAmount}/>
+            </div>
+            :
+            ""
+          }
+        </Fragment>
+        
       )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
@@ -83,28 +100,32 @@ const ImageSegmentationPage = () => {
         <Modal.Body>
           <div className="text-center d-flex justify-content-center">
             <div className="button-radio mr-5">
-              <input
-                type="radio"
-                name="algorithm"
-                value="Watershed"
-                onChange={handleChoiceChange}
-              />
-              <label> Watershed</label>
+              <label>
+                <input
+                  type="radio"
+                  name="algorithm"
+                  value="Watershed"
+                  onChange={handleChoiceChange}
+                />
+                {` Watershed`}
+              </label>
             </div>
             <div className="button-radio">
-              <input
-                type="radio"
-                name="algorithm"
-                value="K-Means"
-                onChange={handleChoiceChange}
-              />
-              <label> K-Means</label>
+              <label>
+                <input
+                  type="radio"
+                  name="algorithm"
+                  value="K-Means"
+                  onChange={handleChoiceChange}
+                />
+                {` K-Means`}
+              </label>
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
-            Save
+            Confirm
           </Button>
         </Modal.Footer>
       </Modal>

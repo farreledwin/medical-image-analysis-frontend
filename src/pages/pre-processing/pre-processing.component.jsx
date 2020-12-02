@@ -139,28 +139,32 @@ const PreProcessingPage = () => {
                   <Modal.Body>
                     <div className="text-center d-flex justify-content-center">
                       <div className="button-radio mr-5">
-                        <input
-                          type="radio"
-                          name="normalization"
-                          value="CLAHE"
-                          onChange={handleChoiceChange}
-                        />
-                        <label> CLAHE</label>
+                        <label>
+                          <input
+                            type="radio"
+                            name="normalization"
+                            value="CLAHE"
+                            onChange={handleChoiceChange}
+                          />
+                          {` CLAHE`}
+                        </label>
                       </div>
                       <div className="button-radio">
-                        <input
-                          type="radio"
-                          name="normalization"
-                          value="Stain Normalization"
-                          onChange={handleChoiceChange}
-                        />
-                        <label> Stain Normalization</label>
+                        <label>
+                          <input
+                            type="radio"
+                            name="normalization"
+                            value="Stain Normalization"
+                            onChange={handleChoiceChange}
+                          />
+                          {` Stain Normalization`}
+                        </label>
                       </div>
                     </div>
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
-                      Save
+                      Confirm
                     </Button>
                   </Modal.Footer>
                 </Modal>

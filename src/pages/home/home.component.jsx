@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <LoadingMask
       loading={isFetching ? true : false}
-      loadingText={"LOADING ANALYZE THE RESULTS..."}
+      loadingText={"ANALYZING THE RESULTS..."}
     >
       <div>
         <JumbotronContent />
