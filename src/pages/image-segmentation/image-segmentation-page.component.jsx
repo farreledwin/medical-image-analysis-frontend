@@ -4,6 +4,8 @@ import ImageSegmentationContent from "../../components/image-segmentation/image-
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 import { useEffect } from "react";
+import LoadingMask from "react-loadingmask";
+import "react-loadingmask/dist/react-loadingmask.css";
 
 const ImageSegmentationPage = () => {
   const [show, setShow] = useState(true);
@@ -12,6 +14,11 @@ const ImageSegmentationPage = () => {
   const [resultData, setResultData] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [clusterAmount, setclusterAmount] = useState(2);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const handleChange = () => {
+    setIsFetching(!isFetching);
+  };
 
   const handleClose = () => {
     setShow(false);
@@ -33,11 +40,13 @@ const ImageSegmentationPage = () => {
 
   useEffect(() => {
     if (imageData !== null) {
+      handleChange();
       const data = new FormData();
       data.append("image", imageData);
+      data.append("valueBtn",valueBtn);
       if (valueBtn === "Watershed") {
         axios
-          .post("http://127.0.0.1:5000/segmentation/watershed", data, config)
+          .post("http://127.0.0.1:5000/image-segmentation", data, config)
           .then((res) => {
             setResultData(res);
           })
@@ -47,7 +56,7 @@ const ImageSegmentationPage = () => {
       } else {
         data.append("clusters_count", clusterAmount);
         axios
-          .post("http://127.0.0.1:5000/segmentation/kmeans", data, config)
+          .post("http://127.0.0.1:5000/image-segmentation", data, config)
           .then((res) => {
             setResultData(res);
           })
@@ -61,9 +70,19 @@ const ImageSegmentationPage = () => {
   console.log(valueBtn);
   console.log(resultData);
 
+  useEffect(() => {
+    if(resultData !== null) {
+      handleChange();
+    }
+  },[resultData]);
+
   return (
-    <div>
-      <h1 className="text-center text-white mb-2 mt-2">Image Segmentation</h1>
+    <LoadingMask
+    loading={isFetching ? true : false}
+    loadingText={"ANALYZING THE RESULTS..."}
+  >
+    <>
+      <h1 className="text-center text-white mb-5 mt-5">Image Segmentation</h1>
       {resultData !== null ? (
         <>
           <h4 className="text-center text-white mb-2 mt-2">Uploaded Image</h4>
@@ -75,6 +94,7 @@ const ImageSegmentationPage = () => {
           </div>
         </>
       ) : (
+        
         <Fragment>
           <ImageSegmentationContent handleImage={handleImage} />
           {valueBtn === "K-Means"? 
@@ -142,7 +162,8 @@ const ImageSegmentationPage = () => {
           </div>
         </>
       ) : null}
-    </div>
+    </>
+    </LoadingMask>
   );
 };
 export default ImageSegmentationPage;

@@ -6,6 +6,9 @@ import "./pre-processing.styles.scss";
 import axios from "axios";
 import UploadPhotoSection from "../../components/upload-photo-pre-process/upload-photo-pre.component";
 import StainContent from "../../components/stain-content/stain-content.component";
+import LoadingMask from "react-loadingmask";
+import "react-loadingmask/dist/react-loadingmask.css";
+
 const marginAuto = {
   margin: "auto",
 };
@@ -23,6 +26,12 @@ const PreProcessingPage = () => {
     reference_image: null,
     target_image: null,
   });
+  const [isFetching, setIsFetching] = useState(false);
+
+  const handleChange = () => {
+    setIsFetching(!isFetching);
+  };
+
 
   const handlePreviewImage = (event) => {
     if (event.target.name === "reference_image") {
@@ -41,6 +50,7 @@ const PreProcessingPage = () => {
   };
 
   const submitStain = () => {
+    handleChange();
     const data = new FormData();
     data.append("reference_image", imageData.reference_image);
     data.append("target_image", imageData.target_image);
@@ -81,6 +91,7 @@ const PreProcessingPage = () => {
 
   useEffect(() => {
     if (imageData !== null && valueBtn == "CLAHE") {
+      handleChange();
       const data = new FormData();
       data.append("image", imageData);
       data.append("valueBtn", valueBtn);
@@ -97,7 +108,17 @@ const PreProcessingPage = () => {
 
   console.log(resultData);
 
+  useEffect(() => {
+    if(resultData !== null) {
+      handleChange();
+    }
+  },[resultData]);
+
   return (
+    <LoadingMask
+    loading={isFetching ? true : false}
+    loadingText={"ANALYZING THE RESULTS..."}
+  >
     <>
       <h1 className="text-center text-white mb-5 mt-5">Pre Processing Image</h1>
       <div className="row justify-content-center">
@@ -186,6 +207,7 @@ const PreProcessingPage = () => {
         )}
       </div>
     </>
+    </LoadingMask>
   );
 };
 
