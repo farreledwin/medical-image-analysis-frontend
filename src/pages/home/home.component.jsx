@@ -17,7 +17,7 @@ const HomePage = () => {
       loading={isFetching ? true : false}
       loadingText={"ANALYZING THE RESULTS..."}
     >
-      <div>
+      <div className="margin-top-10em">
         <JumbotronContent />
         <UploadPhotos handleChange={handleChange} />
         <ImageRegistrationPhotos handleChange={handleChange} />

@@ -3,7 +3,7 @@ import "./jumbotron.styles.scss";
 
 const JumbotronContent = () => (
   <div
-    className="jumbotron background-transparent text-white modify-padding"
+    className="jumbotron background-transparent text-white"
     data-aos="fade-right"
     data-aos-easing="linear"
     data-aos-duration="1000"
