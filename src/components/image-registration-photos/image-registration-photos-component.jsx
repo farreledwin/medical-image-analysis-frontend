@@ -74,7 +74,7 @@ const ImageRegistrationPhotos = (props) => {
       <h1 class="text-center text-white mb-5">IMAGE REGISTRATION</h1>
       <div className="row justify-content-center">
         <div className="text-center text-white mr-5">
-          <p>Upload Your Reference Photos Here!</p>
+          <p>Upload Your Reference Image Here!</p>
 
           {previewImage.reference_image !== null ? (
             <div className="icon-upload d-flex">
@@ -102,7 +102,7 @@ const ImageRegistrationPhotos = (props) => {
         </div>
         {/* <img src={"data:image/jpg;base64," + resultRegistrationData.data.image[0]} /> */}
         <div className="text-center text-white ml-5">
-          <p>Upload Your Target Photos Here!</p>
+          <p>Upload Your Target Image Here!</p>
 
           {previewImage.target_image !== null ? (
             <div className="icon-upload d-flex">
@@ -145,7 +145,7 @@ const ImageRegistrationPhotos = (props) => {
       {resultRegistrationData !== null ? (
         <div>
           <div className="text-center text-white mt-5">
-            <p>Result Image</p>
+            <p>Image Result</p>
           </div>
           <h6 className="text-white text-center">
             RMSE :{resultRegistrationData.data.calculate.rmse}

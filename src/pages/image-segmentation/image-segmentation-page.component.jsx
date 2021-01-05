@@ -152,7 +152,7 @@ const ImageSegmentationPage = () => {
       {resultData !== null ? (
         <>
           <h4 className="text-center text-white mb-1 mt-2">
-            Result Image Segmentation
+            Image Segmentation Result
           </h4>
           <div className="icon-upload d-flex mt-2 mb-5">
             <img

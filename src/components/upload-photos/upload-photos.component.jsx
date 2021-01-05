@@ -69,7 +69,7 @@ const UploadPhotos = (props) => {
             data-aos-duration="1000"
             src={"data:image/jpg;base64," + resultData.data.query_image}
           />
-          <h1 className="text-center text-white mb-5">Pre Processing Image</h1>
+          <h1 className="text-center text-white mb-5">Image Processing</h1>
           <img
             className="mb-5"
             style={{ width: "200px" }}
@@ -78,7 +78,7 @@ const UploadPhotos = (props) => {
             data-aos-duration="1000"
             src={"data:image/jpg;base64," + resultData.data.clahe_image}
           />
-          <h1 className="text-center text-white mb-5">Result Image</h1>
+          <h1 className="text-center text-white mb-5">Image Result</h1>
           <div className="row justify-content-center">
             {resultData.data.image.map((data, index) => (
               <div>
@@ -102,7 +102,7 @@ const UploadPhotos = (props) => {
         </div>
       ) : (
         <div className="text-center text-white">
-          <p>Upload Your Breast Histology Photos Here!</p>
+          <p>Upload Your Breast Histology Image Here!</p>
           <div className="icon-upload d-flex">
             <FontAwesomeIcon icon={faUserMd} />
             <label

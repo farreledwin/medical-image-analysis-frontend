@@ -15,7 +15,7 @@ const UploadPhotoSection = (props) => {
   return (
     <>
       {" "}
-      <p>Upload Your Photos Here!</p>
+      <p>Upload Your Image Here!</p>
       <div className="icon-upload d-flex text-white">
         <FontAwesomeIcon icon={faUserMd} />
         <label

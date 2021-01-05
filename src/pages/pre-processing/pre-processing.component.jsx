@@ -120,7 +120,7 @@ const PreProcessingPage = () => {
     loadingText={"ANALYZING THE RESULTS..."}
   >
     <>
-      <h1 className="text-center text-white mb-5 mt-5">Pre Processing Image</h1>
+      <h1 className="text-center text-white mb-5 mt-5">Image Processing</h1>
       <div className="row justify-content-center">
         {resultData !== null && valueBtn == "CLAHE" ? (
           <div className="container text-center">
@@ -134,7 +134,7 @@ const PreProcessingPage = () => {
               src={"data:image/jpg;base64," + resultData.data.upload_image}
             />
             <h1 className="text-center text-white mb-5">
-              Result Pre Processing Image
+              Image Processing Result
             </h1>
             <img
               className="mb-5"
@@ -153,7 +153,7 @@ const PreProcessingPage = () => {
                   <Modal.Header>
                     <Modal.Title>
                       <label className="text-center">
-                        Select Pre Processing Type
+                        Select Image Processing Type
                       </label>
                     </Modal.Title>
                   </Modal.Header>

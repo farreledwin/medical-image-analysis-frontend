@@ -20,7 +20,7 @@ const StainContent = (props) => {
     >
       <div className="row justify-content-center">
         <div className="text-center text-white mr-5">
-          <p>Upload Your Source Photos Here!</p>
+          <p>Upload Your Source Image Here!</p>
 
           {props.previewImage.reference_image !== null ? (
             <div className="icon-upload d-flex">
@@ -48,7 +48,7 @@ const StainContent = (props) => {
         </div>
         {/* <img src={"data:image/jpg;base64," + resultRegistrationData.data.image[0]} /> */}
         <div className="text-center text-white ml-5">
-          <p>Upload Your Target Photos Here!</p>
+          <p>Upload Your Target Image Here!</p>
 
           {props.previewImage.target_image !== null ? (
             <div className="icon-upload d-flex">
@@ -91,7 +91,7 @@ const StainContent = (props) => {
       {props.resultData !== null ? (
         <>
           <h1 className="text-center text-white mb-5 mt-5">
-            Result Pre Processing Image
+            Image Processing Result
           </h1>
           <div className="icon-upload d-flex mb-5">
             <img
