@@ -147,9 +147,9 @@ const ImageRegistrationPhotos = (props) => {
           <div className="text-center text-white mt-5">
             <p>Image Result</p>
           </div>
-          <h6 className="text-white text-center">
+          {/* <h6 className="text-white text-center">
             RMSE :{resultRegistrationData.data.calculate.rmse}
-          </h6>
+          </h6> */}
           <h6 className="text-white text-center">
             TX : {resultRegistrationData.data.calculate.tx}
           </h6>

@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+.rc-loading-icon-default {
+  display: none !important;
+}
+
 *{
   font-family: 'Helvetica';
 }

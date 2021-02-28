@@ -60,7 +60,7 @@ const UploadPhotos = (props) => {
       <h1 className="text-center text-white mb-5">IMAGE RETRIEVAL</h1>
       {resultData !== null ? (
         <div className="container text-center">
-          <h1 className="text-center text-white mb-5">Query Image</h1>
+          <h1 className="text-center text-white mb-5">Image Query</h1>
           <img
             className="mb-5"
             style={{ width: "200px" }}
@@ -69,7 +69,7 @@ const UploadPhotos = (props) => {
             data-aos-duration="1000"
             src={"data:image/jpg;base64," + resultData.data.query_image}
           />
-          <h1 className="text-center text-white mb-5">Image Processing</h1>
+          {/* <h1 className="text-center text-white mb-5">Image Processing</h1>
           <img
             className="mb-5"
             style={{ width: "200px" }}
@@ -77,7 +77,7 @@ const UploadPhotos = (props) => {
             data-aos-easing="linear"
             data-aos-duration="1000"
             src={"data:image/jpg;base64," + resultData.data.clahe_image}
-          />
+          /> */}
           <h1 className="text-center text-white mb-5">Image Result</h1>
           <div className="row justify-content-center">
             {resultData.data.image.map((data, index) => (
